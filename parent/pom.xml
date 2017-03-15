@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2017 Adobe Systems Incorporated
+ All Rights Reserved.
+
+ NOTICE:  Adobe permits you to use, modify, and distribute this file in accordance with the 
+ terms of the Adobe license agreement accompanying it.  If you have received this file from a 
+ source other than Adobe, then your use, modification, or distribution of it requires the prior 
+ written permission of Adobe.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T D E S C R I P T I O N -->
+    <!-- ====================================================================== -->
+    <groupId>com.adobe.cq.sites</groupId>
+    <artifactId>cq-sites-template-tools-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>AEM Sites Template Tools Parent POM</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <aem.host>localhost</aem.host>
+        <aem.port>4502</aem.port>
+        <aem.publish.host>localhost</aem.publish.host>
+        <aem.publish.port>4503</aem.publish.port>
+        <aem.contextPath />
+        <sling.user>admin</sling.user>
+        <sling.password>admin</sling.password>
+        <vault.user>admin</vault.user>
+        <vault.password>admin</vault.password>
+        <slf4j.version>1.5.11</slf4j.version>
+    </properties>
+
+    <scm>
+      <connection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration.git</connection>
+      <developerConnection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration.git</developerConnection>
+      <url>https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration/tree/master/parent</url>
+      <tag>HEAD</tag>
+    </scm>
+
+</project>

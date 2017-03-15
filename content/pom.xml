@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2017 Adobe Systems Incorporated
+ All Rights Reserved.
+
+ NOTICE:  Adobe permits you to use, modify, and distribute this file in accordance with the
+ terms of the Adobe license agreement accompanying it.  If you have received this file from a
+ source other than Adobe, then your use, modification, or distribution of it requires the prior
+ written permission of Adobe.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====================================================================== -->
+    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+    <!-- ====================================================================== -->
+    <parent>
+        <groupId>com.adobe.cq.sites</groupId>
+        <artifactId>cq-sites-template-tools-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../parent/pom.xml</relativePath>
+    </parent>
+
+
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
+    <!-- ====================================================================== -->
+    <artifactId>cq-sites-template-migration-tools-pkg</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>content-package</packaging>
+    <name>AEM Sites Template Migration Tools - Package</name>
+
+    <scm>
+        <connection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration.git</connection>
+        <developerConnection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration.git</developerConnection>
+        <url>https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration/tree/master/content</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <!-- ====================================================================== -->
+    <!-- B U I L D   D E F I N I T I O N                                        -->
+    <!-- ====================================================================== -->
+    <build>
+        <plugins>
+            <!-- Content Package Plugin -->
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <version>0.0.24</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <verbose>true</verbose>
+                    <failOnError>true</failOnError>
+                    <group>adobe/cq630/wcm</group>
+                    <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
+                    <failOnError>true</failOnError>
+                    <failOnMissingEmbed>true</failOnMissingEmbed>
+                    <embeddeds>
+                        <embedded>
+                            <groupId>com.adobe.cq.sites</groupId>
+                            <artifactId>cq-sites-template-content-cleanup</artifactId>
+                            <target>/apps/wcm/tools/install</target>
+                            <filter>true</filter>
+                        </embedded>
+                    </embeddeds>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>autoInstallSinglePackage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.day.jcr.vault</groupId>
+                        <artifactId>content-package-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-package</id>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <!-- ====================================================================== -->
+    <!-- D E P E N D E N C I E S -->
+    <!-- ====================================================================== -->
+    <dependencies>
+        <dependency>
+            <groupId>com.adobe.cq.sites</groupId>
+            <artifactId>cq-sites-template-content-cleanup</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2017 Adobe Systems Incorporated
+ All Rights Reserved.
+
+ NOTICE:  Adobe permits you to use, modify, and distribute this file in accordance with the
+ terms of the Adobe license agreement accompanying it.  If you have received this file from a
+ source other than Adobe, then your use, modification, or distribution of it requires the prior
+ written permission of Adobe.
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====================================================================== -->
+    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+    <!-- ====================================================================== -->
+    <parent>
+        <groupId>com.adobe.cq.sites</groupId>
+        <artifactId>cq-sites-template-tools-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>parent/pom.xml</relativePath>
+    </parent>
+
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
+    <!-- ====================================================================== -->
+    <artifactId>cq-sites-template-migration-reactor</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>AEM Sites Template Migration - Reactor</name>
+
+    <scm>
+        <connection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration.git</connection>
+        <developerConnection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration.git</developerConnection>
+        <url>https://github.com/Adobe-Marketing-Cloud/aem-sites-template-migration</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <!-- ====================================================================== -->
+    <!-- M O D U L E S                                                          -->
+    <!-- ====================================================================== -->
+    <modules>
+        <module>bundles/cq-sites-template-cleanup</module>
+        <module>content</module>
+        <module>parent</module>
+    </modules>
+
+</project>
